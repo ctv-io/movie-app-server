@@ -5,7 +5,7 @@ import http from 'http'
 import cors from 'cors'
 import ServerSocket from './socket'
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 const app: Application = express()
 app.use(
   cors({
