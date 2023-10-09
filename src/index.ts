@@ -1,8 +1,15 @@
 import express, { type Application, type Request, type Response } from 'express'
 import bodyParser from 'body-parser'
+import http from 'http'
+import ServerSocket from './socket'
 
-const app: Application = express()
 const PORT = 3001
+const app: Application = express()
+
+const httpServer = http.createServer(app)
+
+// eslint-disable-next-line
+new ServerSocket(httpServer)
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -15,12 +22,7 @@ app.post('/post', async (req: Request, res: Response): Promise<Response> => res.
     message: 'Hello World from post!'
   }))
 
-try {
-  app.listen(PORT, (): void => {
-    // eslint-disable-next-line no-console
-    console.log(`Connected successfully on port ${PORT}`)
-  })
-} catch (error: any) {
-    // eslint-disable-next-line no-console
-  console.error(`Error occured: ${error.message}`)
-}
+httpServer.listen({ port: PORT }, (): void => {
+  // eslint-disable-next-line no-console
+  console.log(`🚀 Server ready at http://localhost:${PORT}`)
+})
