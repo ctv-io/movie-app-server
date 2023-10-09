@@ -1,10 +1,17 @@
 import express, { type Application, type Request, type Response } from 'express'
 import bodyParser from 'body-parser'
 import http from 'http'
+// eslint-disable-next-line
+import cors from 'cors'
 import ServerSocket from './socket'
 
 const PORT = 3001
 const app: Application = express()
+app.use(
+  cors({
+    origin: '*',
+  })
+)
 
 const httpServer = http.createServer(app)
 
