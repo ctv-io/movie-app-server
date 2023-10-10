@@ -16,6 +16,15 @@
     },
     "rules": {
         "@typescript-eslint/no-misused-promises": "off",
-        "no-console": "off"
+        "react/react-in-jsx-scope": "off",
+        "linebreak-style" : "off",
+        "@typescript-eslint/indent": "off",
+        "no-console": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
     }
 }
