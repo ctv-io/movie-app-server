@@ -6,7 +6,7 @@ import express, {
 import bodyParser from 'body-parser';
 import http from 'http';
 // eslint-disable-next-line
-import cors from 'cors'
+import cors from 'cors';
 import ServerSocket from './socket';
 
 const PORT = process.env.PORT || 3001;
@@ -20,7 +20,7 @@ app.use(
 const httpServer = http.createServer(app);
 
 // eslint-disable-next-line
-new ServerSocket(httpServer)
+new ServerSocket(httpServer);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
