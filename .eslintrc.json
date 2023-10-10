@@ -6,7 +6,8 @@
     "extends": [
         "airbnb",
         "airbnb-typescript",
-        "prettier"
+        "prettier",
+        "plugin:prettier/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
